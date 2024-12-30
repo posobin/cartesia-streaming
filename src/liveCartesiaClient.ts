@@ -169,11 +169,7 @@ export class LiveCartesiaClient {
             );
             // decode the base64 audio data
             const audioData = Buffer.from(message.data, "base64");
-            const outputFuture = new Future<void>();
-            outputStream.write(audioData, undefined, () => {
-              outputFuture.resolve();
-            });
-            await outputFuture.promise;
+            outputStream.write(audioData);
           }
           if (message.done) {
             break;
