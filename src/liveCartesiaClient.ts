@@ -102,6 +102,7 @@ export class LiveCartesiaClient {
           ...streamingOptions,
           contextId,
           transcript: firstChunk,
+          continue: true,
         });
         sentFirstChunk = true;
         responseFuture.resolve(response);
