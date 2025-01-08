@@ -63,5 +63,6 @@ describe("LiveCartesiaClient", () => {
     assert.ok(fs.existsSync(outputFile));
     const stats = fs.statSync(outputFile);
     assert.ok(stats.size > 0);
-  });
+  // sometimes streaming all the audio takes longer than the default timeout
+  }, { timeout: 30_000 });
 });
